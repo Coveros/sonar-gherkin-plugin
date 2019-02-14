@@ -22,7 +22,7 @@ node {
                     $class           : 'GitSCM',
                     branches         : [[name: "*/${branchCheckout}"]],
                     userRemoteConfigs: [[
-                                                url    : 'https://github.com/jeffvoight/sonar-gherkin-plugin.git',
+                                                url    : 'https://github.com/Coveros/sonar-gherkin-plugin.git',
                                                 refspec: "${refspecs}"
                                         ]]
             ])
@@ -39,7 +39,7 @@ node {
                     )
             ]) {
                 stage('Build, Test, Package, Analyze') {
-                    def sonarCmd = "mvn clean package sonar:sonar -Dsonar.login=${env.sonartoken} -Dsonar.junit.reportPaths='gherkin-checks/target/surefire-reports,gherkin-frontend/target/surefire-reports,sonar-gherkin-plugin/target/surefire-reports' -Dsonar.jacoco.reportPaths=target/jacoco.exec"
+                    def sonarCmd = "mvn clean verify sonar:sonar -Dsonar.login=${env.sonartoken} -Dsonar.junit.reportPaths='gherkin-checks/target/surefire-reports,gherkin-frontend/target/surefire-reports,sonar-gherkin-plugin/target/surefire-reports' -Dsonar.jacoco.reportPaths=target/jacoco.exec"
                     if (branch == 'develop' || branch == 'master') {
                         sh "${sonarCmd} -Dsonar.branch=${branch}"
                     } else {
