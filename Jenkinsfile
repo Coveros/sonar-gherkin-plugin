@@ -53,7 +53,9 @@ node {
             }
         } finally {
             stage('Publish Coverage Results') {
-                archiveArtifacts artifacts: 'gherkin-checks/target/surefire-reports/**,gherkin-frontend/target/surefire-reports/**,sonar-gherkin-plugin/target/surefire-reports/**'
+                archiveArtifacts artifacts: 'gherkin-checks/target/surefire-reports/**'
+                archiveArtifacts artifacts: 'gherkin-frontend/target/surefire-reports/**'
+                archiveArtifacts artifacts: 'sonar-gherkin-plugin/target/surefire-reports/**'
                 archiveArtifacts artifacts: 'sonar-gherkin-plugin/target/sonar-gherkin-plugin-1.8-SNAPSHOT.jar'
                 junit 'gherkin-checks/target/surefire-reports/TEST-*.xml,gherkin-frontend/target/surefire-reports/TEST-*.xml,sonar-gherkin-plugin/target/surefire-reports/TEST-*.xml'
                 jacoco()
