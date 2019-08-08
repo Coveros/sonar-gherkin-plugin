@@ -37,7 +37,7 @@ public class FileNameCheckTest {
   @Test
   public void should_not_follow_the_default_naming_convention_and_raise_an_issue() {
     GherkinCheckVerifier.issues(check, CheckTestUtils.getTestFile("file-name/FileNameKO.feature"))
-      .next().withMessage("Rename this file to match the regular expression: ^ac-\\d{5,6}\\.feature$")
+      .next().withMessage("Rename this file to match the regular expression: ^ac-\\d{4,}\\.feature$")
       .noMore();
   }
 
