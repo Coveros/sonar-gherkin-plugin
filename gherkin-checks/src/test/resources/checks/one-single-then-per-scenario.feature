@@ -1,7 +1,7 @@
-Feature: My feature One single when step per scenario
+Feature: My feature One single then step per scenario
   Blabla...
 
-  Scenario Outline: Scenario 1 - One single when step per scenario
+  Scenario Outline: Scenario 1 - One single then step per scenario
     Given Blabla given...
     When Blabla when... <number>
     # Noncompliant [[sc=5;ec=24;secondary=+1]] {{Merge all the Then steps or split the scenario up in multiple scenarios.}}
@@ -12,7 +12,7 @@ Feature: My feature One single when step per scenario
       | 1      |
       | 2      |
 
-  Scenario: Scenario 2 - One single when step per scenario
+  Scenario: Scenario 2 - One single then step per scenario
     Given Blabla given...
     When Blabla when...
     # Noncompliant [[sc=5;ec=40;secondary=+1]] {{Merge all the Then steps or split the scenario up in multiple scenarios.}}
