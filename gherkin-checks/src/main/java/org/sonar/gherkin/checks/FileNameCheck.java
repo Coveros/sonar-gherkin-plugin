@@ -34,13 +34,13 @@ import java.util.regex.PatternSyntaxException;
 @Rule(
   key = "S1578",
   name = "File names should comply with a naming convention",
-  priority = Priority.MINOR,
+  priority = Priority.CRITICAL,
   tags = {Tags.CONVENTION})
 @SqaleConstantRemediation("5min")
 @ActivatedByDefault
 public class FileNameCheck extends DoubleDispatchVisitorCheck {
 
-  private static final String DEFAULT = "^[a-z][-A-Za-z0-9]*\\.feature$";
+  private static final String DEFAULT = "^ac-\\d{4,}\\.feature$";
 
   @RuleProperty(
     key = "format",
